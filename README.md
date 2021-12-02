@@ -1,12 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/ laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## A Larave API starter kit using Fortify and Sanctum
 - Check here for full documentation
 - [Laravel Fortify](https://laravel.com/8.x/fortify).
@@ -59,7 +50,6 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - The user validation and creation process may be customized by modifying the App\Actions\Fortify\CreateNewUser action that was generated when you installed Laravel Fortify.
 - When registering new users Fortify uses the 'home' field in config/fortify.php to ridirect user to a default route '/home', However it's best to specify the domain of the SPA home and the request could also be an ajax, so redirection is done from the Middleware RiderirectIfAuthenticated.php
 ```php
-///...
  public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
