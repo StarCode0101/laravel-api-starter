@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\LoginResponse;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -21,7 +25,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerResponseBindings();
     }
 
     /**
@@ -31,6 +35,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
@@ -42,6 +47,16 @@ class FortifyServiceProvider extends ServiceProvider
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+    }
+
+    protected function registerResponseBindings()
+    {
+
+        
+        ResetPassword::createUrlUsing(function ($notifiable, $token) {
+
+            return url(env('SPA_URL') . "/auth/reset-password/{$token}?email={$notifiable->getEmailForPasswordReset()}");
         });
     }
 }
