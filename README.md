@@ -1,3 +1,4 @@
+
 ## A Larave API starter kit using Fortify and Sanctum
 - Check here for full documentation
 - [Laravel Fortify](https://laravel.com/8.x/fortify).
@@ -68,7 +69,6 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
         return $next($request);
     }
 ```
-
 ## Email Verification
 - By defualt fortify doesn't use auth:sanctum for protecting routes, so we'll create a custom e-mail verification controller(App\Http\Auth\VerifyEmailCntroller).
 
