@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\TwoFactorAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/email/verification-notification', [VerifyEmailController::class, 'resend'])
         ->name('verification.send');
 
+        Route::post('/2fa-confirm', [TwoFactorAuthController::class, 'confirm'])->name('two-factor.confirm');
+
+
    /*  Route::apiResources([
         'posts' => PostController::class,
     ]); */
@@ -31,3 +35,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'verify'])
     ->middleware(['signed'])
     ->name('verification.verify');
+

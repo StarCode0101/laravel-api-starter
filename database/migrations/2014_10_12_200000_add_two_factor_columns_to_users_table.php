@@ -21,6 +21,10 @@ class AddTwoFactorColumnsToUsersTable extends Migration
             $table->text('two_factor_recovery_codes')
                     ->after('two_factor_secret')
                     ->nullable();
+
+            $table->boolean('two_factor_confirmed')
+                    ->after('two_factor_recovery_codes')
+                    ->default(false);
         });
     }
 
