@@ -78,5 +78,5 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Two Factor Authentication
 
 > Warning !!!
-- If users enables 2fa with only QR code and users stops halfway without and not setting up an authenticator app with the code generated users will be locked out without not been able to generate codes when logging it, so to solve this, when setting 2fa it is required uers provide at least one generated to ensure and authenticator app has been setup for a later logins. Fortify doesn't comfirm if an authenticator has been setup. A workaround can be found here  [Laravel Fortify](https://laravel.com/8.x/fortify).
+- If users enables 2fa with only QR code and users stops halfway without and not setting up an authenticator app with the code generated users will be locked out without not been able to generate codes when logging it, so to solve this, when setting 2fa it is required uers provide at least one generated to ensure and authenticator app has been setup for a later logins. Fortify doesn't comfirm if an authenticator has been setup. A workaround can be found here  [Laravel Fortify 2FA workaround](https://dev.to/nicolus/laravel-fortify-implement-2fa-in-a-way-that-won-t-let-users-lock-themselves-out-2ejk).
 
