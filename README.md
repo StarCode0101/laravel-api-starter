@@ -70,7 +70,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     }
 ```
 ## Email Verification
-- By defualt fortify doesn't use auth:sanctum for protecting routes, so we'll create a custom e-mail verification controller(App\Http\Auth\VerifyEmailCntroller).
+- By defualt fortify doesn't use auth:sanctum for protecting routes, so we'll create a custom e-mail verification controller(App\Http\Auth\VerifyEmailController).
 
 ## Password Reset
 - To reset passwords, by default uses the address of the api, but we are going to generate a custom url using the frontend address, to do this we use the ResetPassword notification of Laravel and register it in a binding in the FortifyServiceProvider.
